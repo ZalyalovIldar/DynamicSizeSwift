@@ -29,7 +29,7 @@ class PresentTableViewCell: UITableViewCell {
     }
     
     func prepareCell(with presents: [Present]) {
-        presentsCountLabel.text = "\(presents.count) \(EndingWord.getCorrectEnding(with: presents.count, and: DeclinationWordDictionary.present))"
+        presentsCountLabel.text = "\(presents.count) \(EndingWord.getCorrectEnding(with: presents.count, and: DeclinationWord.present))"
         presentsImageView.forEach { $0.image = presents[0].image }
         
         presentsImageView.enumerated().forEach { $0.element.image = presents[$0.offset].image }

@@ -28,6 +28,10 @@
 		CB7134161F828AD200D0FF16 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7134151F828AD200D0FF16 /* NoteViewController.swift */; };
 		CB7134191F828C6400D0FF16 /* CreateNewsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7134181F828C6400D0FF16 /* CreateNewsDelegate.swift */; };
 		CB71341B1F82914C00D0FF16 /* BorderCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71341A1F82914C00D0FF16 /* BorderCreater.swift */; };
+		CB71732C1F98A5A800B6ACAF /* InfoButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71732A1F98A5A800B6ACAF /* InfoButtonCollectionViewCell.swift */; };
+		CB71732D1F98A5A800B6ACAF /* InfoButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB71732B1F98A5A800B6ACAF /* InfoButtonCollectionViewCell.xib */; };
+		CB7173301F98A80C00B6ACAF /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB71732E1F98A80C00B6ACAF /* PhotoCollectionViewCell.swift */; };
+		CB7173311F98A80C00B6ACAF /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB71732F1F98A80C00B6ACAF /* PhotoCollectionViewCell.xib */; };
 		CB7DFB981F7011C90041877A /* FollowersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DFB961F7011C90041877A /* FollowersTableViewController.swift */; };
 		CB7DFB9C1F7012400041877A /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DFB9A1F7012400041877A /* FollowerTableViewCell.swift */; };
 		CB7DFB9D1F7012400041877A /* FollowerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7DFB9B1F7012400041877A /* FollowerTableViewCell.xib */; };
@@ -81,6 +85,10 @@
 		CB7134151F828AD200D0FF16 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		CB7134181F828C6400D0FF16 /* CreateNewsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewsDelegate.swift; sourceTree = "<group>"; };
 		CB71341A1F82914C00D0FF16 /* BorderCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCreater.swift; sourceTree = "<group>"; };
+		CB71732A1F98A5A800B6ACAF /* InfoButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		CB71732B1F98A5A800B6ACAF /* InfoButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoButtonCollectionViewCell.xib; sourceTree = "<group>"; };
+		CB71732E1F98A80C00B6ACAF /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		CB71732F1F98A80C00B6ACAF /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		CB7DFB961F7011C90041877A /* FollowersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersTableViewController.swift; sourceTree = "<group>"; };
 		CB7DFB9A1F7012400041877A /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
 		CB7DFB9B1F7012400041877A /* FollowerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowerTableViewCell.xib; sourceTree = "<group>"; };
@@ -164,6 +172,17 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		CB7173291F98A57200B6ACAF /* collectionCells */ = {
+			isa = PBXGroup;
+			children = (
+				CB71732A1F98A5A800B6ACAF /* InfoButtonCollectionViewCell.swift */,
+				CB71732B1F98A5A800B6ACAF /* InfoButtonCollectionViewCell.xib */,
+				CB71732E1F98A80C00B6ACAF /* PhotoCollectionViewCell.swift */,
+				CB71732F1F98A80C00B6ACAF /* PhotoCollectionViewCell.xib */,
+			);
+			path = collectionCells;
+			sourceTree = "<group>";
+		};
 		CBD1043C1F743B5800A48BCD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +212,7 @@
 		CBD1043F1F743BC400A48BCD /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				CB7173291F98A57200B6ACAF /* collectionCells */,
 				CB7DFB9A1F7012400041877A /* FollowerTableViewCell.swift */,
 				CB7DFB9B1F7012400041877A /* FollowerTableViewCell.xib */,
 				CBD104411F744D7400A48BCD /* StatusTableViewCell.swift */,
@@ -308,8 +328,10 @@
 				CBD1044C1F75633D00A48BCD /* ContactTableViewCell.xib in Resources */,
 				CBD104441F744D7400A48BCD /* StatusTableViewCell.xib in Resources */,
 				CB5A1A7D1F66D55500C1971E /* Assets.xcassets in Resources */,
+				CB7173311F98A80C00B6ACAF /* PhotoCollectionViewCell.xib in Resources */,
 				CB8489991F75ABB800D2FEE7 /* SchoolTableViewCell.xib in Resources */,
 				CBD104581F757AC300A48BCD /* ProfessionTableViewCell.xib in Resources */,
+				CB71732D1F98A5A800B6ACAF /* InfoButtonCollectionViewCell.xib in Resources */,
 				CB7061DE1F76C7F4008A14A8 /* PresentTableViewCell.xib in Resources */,
 				CB7061E41F76DDC3008A14A8 /* OtherInfoTableViewCell.xib in Resources */,
 				CB5A1A7B1F66D55500C1971E /* Main.storyboard in Resources */,
@@ -325,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB71732C1F98A5A800B6ACAF /* InfoButtonCollectionViewCell.swift in Sources */,
 				CB8935251F877B3300C26DD2 /* MoreProfileAlert.swift in Sources */,
 				CB7061DD1F76C7F4008A14A8 /* PresentTableViewCell.swift in Sources */,
 				CB42F4D91F730BA000871971 /* EndingWord.swift in Sources */,
@@ -352,6 +375,7 @@
 				CBD104471F752E2900A48BCD /* MainInfoTableViewCell.swift in Sources */,
 				CB42F4D71F7304ED00871971 /* ColorRGB.swift in Sources */,
 				CB9B22AD1F6EA7B10093AA92 /* User.swift in Sources */,
+				CB7173301F98A80C00B6ACAF /* PhotoCollectionViewCell.swift in Sources */,
 				CB71341B1F82914C00D0FF16 /* BorderCreater.swift in Sources */,
 				CB7DFB9C1F7012400041877A /* FollowerTableViewCell.swift in Sources */,
 				CB8489951F75AB5A00D2FEE7 /* School.swift in Sources */,

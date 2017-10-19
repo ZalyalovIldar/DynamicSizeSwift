@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ViewController: UITableViewController, CreateNewsDelegate {
+class ViewController: UITableViewController, CreateNewsDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    @IBOutlet weak var infoScrollView: UIScrollView!
-    @IBOutlet weak var photoScrollView: UIScrollView!
+    
+    @IBOutlet weak var infoButtonsCollectionView: UICollectionView!
+    @IBOutlet weak var photoCollectionView: UICollectionView!
     @IBOutlet var menuButtons: [UIButton]!
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -38,6 +39,8 @@ class ViewController: UITableViewController, CreateNewsDelegate {
     let followersIdentifierSegue = "followersSegue"
     let createNewsIdentifierSegue = "createNewsSegue"
     
+    let infoButtonsCellIdentefier = "infoButtonCell"
+    let photoCellIdentefier = "photoCell"
     let newsCellIdentefier = "newsCell"
     var news = [News]()
     
@@ -61,18 +64,13 @@ class ViewController: UITableViewController, CreateNewsDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.tableFooterView = UIView()
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 50
-        tableView.estimatedSectionHeaderHeight = 50
-        
         user = generateUser()
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
+        infoButtonsCollectionView.delegate = self
+        prepareCollectionViews()
+        prepareTableView()
         registerCell()
         setLabels()
-        createButtons()
-        createImageViews()
         createNews()
     }
     
@@ -85,18 +83,29 @@ class ViewController: UITableViewController, CreateNewsDelegate {
     private func registerCell() {
         let nib = UINib(nibName: "NewsTableViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: newsCellIdentefier)
+        
+        let infoButtonNib = UINib(nibName: "InfoButtonCollectionViewCell", bundle: nil)
+        infoButtonsCollectionView.register(infoButtonNib, forCellWithReuseIdentifier: infoButtonsCellIdentefier)
+        
+        let photoNib = UINib(nibName: "PhotoCollectionViewCell", bundle: nil)
+        photoCollectionView.register(photoNib, forCellWithReuseIdentifier: photoCellIdentefier)
     }
     
-    @objc private func rotated() {
-        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
-            changeDistance(in: infoScrollView, with: infoButtons, constraints: indentionButtonConstraints)
-            changeDistance(in: photoScrollView, with: imageViews, constraints: indentionImageViewConstraints)
+    private func prepareCollectionViews() {
+        if let infoFlowLayout = infoButtonsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            infoFlowLayout.estimatedItemSize = CGSize(width: 1, height: 1)
         }
         
-        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
-            indentionButtonConstraints.forEach { $0.constant = defaultIndention }
-            indentionImageViewConstraints.forEach { $0.constant = defaultIndention }
+        if let photoFlowLayout = photoCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            photoFlowLayout.estimatedItemSize = CGSize(width: 1, height: 1)
         }
+    }
+    
+    private func prepareTableView() {
+        tableView.tableFooterView = UIView()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 50
+        tableView.estimatedSectionHeaderHeight = 50
     }
     
     private func createNews() {
@@ -109,81 +118,7 @@ class ViewController: UITableViewController, CreateNewsDelegate {
         news.append(news3)
     }
     
-    private func createButtons() {
-        let textSize:CGFloat = 15
-        let paragraph = NSMutableParagraphStyle()
-        paragraph.alignment = .center
-        guard let font = UIFont(name: fontName, size: textSize) else { return }
-        let attributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey(rawValue: NSAttributedStringKey.paragraphStyle.rawValue): paragraph, NSAttributedStringKey.font: font]
-        
-        for _ in 0 ..< buttonCounts {
-            let button = UIButton()
-            button.titleLabel?.lineBreakMode = .byCharWrapping
-            button.translatesAutoresizingMaskIntoConstraints = false
-            infoButtons.append(button)
-        }
-
-        for (i, button) in infoButtons.enumerated() {
-            infoScrollView.addSubview(button)
-
-            guard let superview = button.superview else { return }
-            let leftView = (i == 0) ? superview : infoButtons[i - 1]
-            let yCenterConstraint = NSLayoutConstraint(item: button, attribute: .centerY, relatedBy: .equal, toItem: superview, attribute: .centerY, multiplier: 1, constant: 0)
-            let leadingConstraint = NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .equal, toItem: leftView, attribute: .trailing, multiplier: 1, constant: 8)
-            indentionButtonConstraints.append(leadingConstraint)
-
-            NSLayoutConstraint.activate([yCenterConstraint, leadingConstraint])
-        }
-        
-        setTitle(with: infoButtons[friendsButton], count: user.friends, declinationWord: DeclinationWordDictionary.friend, attributes: attributes)
-        setTitle(with: infoButtons[followersButton], count: user.followers.count, declinationWord: DeclinationWordDictionary.follower, attributes: attributes)
-        setTitle(with: infoButtons[groupsButton], count: user.groups, declinationWord: DeclinationWordDictionary.group, attributes: attributes)
-        setTitle(with: infoButtons[albumButton], count: user.photos.count, word: photo, attributes: attributes)
-        setTitle(with: infoButtons[videosButton], count: user.videos, word: video, attributes: attributes)
-        setTitle(with: infoButtons[audiosButton], count: user.audios, word: audio, attributes: attributes)
-        setTitle(with: infoButtons[presentsButton], count: user.presents, declinationWord: DeclinationWordDictionary.present, attributes: attributes)
-        setTitle(with: infoButtons[filesButton], count: user.files, declinationWord: DeclinationWordDictionary.file, attributes: attributes)
-        
-        infoButtons[createNewsButton].addTarget(self, action: #selector(onFollowersClick), for: .touchUpInside)
-        
-    }
-    
-    private func createImageViews() {
-        for _ in 0 ..< user.photos.count {
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight))
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageViews.append(imageView)
-        }
-        
-        for (i, imageView) in imageViews.enumerated() {
-            photoScrollView.addSubview(imageView)
-            
-            guard let superview = imageView.superview else { return }
-            let leftView = (i == 0) ? superview : imageViews[i - 1]
-            
-            let yCenterConstraint = NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: superview, attribute: .centerY, multiplier: 1, constant: 0)
-            let leadingConstraint = NSLayoutConstraint(item: imageView, attribute: .leading, relatedBy: .equal, toItem: leftView, attribute: .trailing, multiplier: 1, constant: defaultIndention)
-            indentionImageViewConstraints.append(leadingConstraint)
-            let widthConstraint = NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: imageWidth)
-            let heightConstraint = NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: imageHeight)
-            
-            NSLayoutConstraint.activate([yCenterConstraint, leadingConstraint, widthConstraint, heightConstraint])
-            
-            imageView.image = user.photos[i]
-        }
-    }
-    
-    private func changeDistance(in scrollView: UIScrollView, with elements: [UIView], constraints: [NSLayoutConstraint]) {
-        let screenWidth = UIScreen.main.bounds.width
-        var elementsWidth: CGFloat = 0
-        elements.forEach { elementsWidth += $0.frame.width }
-        let newDistance = (screenWidth - defaultIndention * 2 - elementsWidth) / CGFloat(elements.count)
-        constraints.forEach { $0.constant = newDistance }
-    }
-    
     override func viewDidLayoutSubviews() {
-        setContentSize(with: infoScrollView, elements: infoButtons, indention: defaultIndention)
-        setContentSize(with: photoScrollView, elements: imageViews, indention: defaultIndention)
         createStyles()
     }
     
@@ -198,8 +133,8 @@ class ViewController: UITableViewController, CreateNewsDelegate {
     private func createStyles() {
         let defaultMarginX:CGFloat = 10
         
-        infoScrollView.createBorders(on: .bottom, marginX: defaultMarginX)
-        infoScrollView.createBorders(on: .top, marginX: defaultMarginX)
+        infoButtonsCollectionView.createBorders(on: .bottom, marginX: defaultMarginX)
+        infoButtonsCollectionView.createBorders(on: .top, marginX: defaultMarginX)
         buttonsView.createBorders(on: .top, marginX: defaultMarginX)
         menuButtons[createNewsButton].createBorders(on: .right, marginX: defaultMarginX)
         menuButtons[takePhotoButton].createBorders(on: .right, marginX: defaultMarginX)
@@ -227,27 +162,14 @@ class ViewController: UITableViewController, CreateNewsDelegate {
         onlineStatusLabel.text = user.onlineStatus.rawValue
         
         ageLabel.text = String(user.age)
-        yearsLabel.text = EndingWord.getCorrectEnding(with: user.age, and: DeclinationWordDictionary.age) + seperator
+        yearsLabel.text = EndingWord.getCorrectEnding(with: user.age, and: DeclinationWord.age) + seperator
         cityLabel.text = user.city
         
         let photoCount = user.photos.count
-        let photoTitle = EndingWord.getCorrectEnding(with: photoCount, and: DeclinationWordDictionary.photograph)
+        let photoTitle = EndingWord.getCorrectEnding(with: photoCount, and: DeclinationWord.photograph)
         photosButton.setTitle("\(photoCount) " + photoTitle, for: .normal)
         
         avatarImage.image = user.profileImage
-    }
-    
-    //MARK: - button methods
-    
-    private func setTitle(with button: UIButton, count: Int, declinationWord: DeclinationWord, attributes: [NSAttributedStringKey : Any]) {
-        let title = EndingWord.getCorrectEnding(with: count, and: declinationWord)
-        let attrString = NSAttributedString(string: "\(count)" + "\n" + title, attributes: attributes)
-        button.setAttributedTitle(attrString, for: .normal)
-    }
-    
-    private func setTitle(with button: UIButton, count: Int, word: String, attributes: [NSAttributedStringKey : Any]) {
-        let attrString = NSAttributedString(string: "\(count)" + "\n" + word, attributes: attributes)
-        button.setAttributedTitle(attrString, for: .normal)
     }
     
     func createNews(from newsData: News) {
@@ -255,10 +177,6 @@ class ViewController: UITableViewController, CreateNewsDelegate {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-    }
-    
-    @objc private func onFollowersClick(sender: UIButton!) {
-        performSegue(withIdentifier: followersIdentifierSegue, sender: nil)
     }
     
     @IBAction func onMoreClick(_ sender: UIBarButtonItem) {
@@ -296,6 +214,42 @@ class ViewController: UITableViewController, CreateNewsDelegate {
         cell.prepareCell(with: news, from: user, number: indexPath.row)
         
         return cell
+    }
+    
+    //MARK: - CollectionView methods
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let buttonsCount = 8
+        if collectionView == infoButtonsCollectionView {
+            return buttonsCount
+        } else if collectionView == photoCollectionView {
+            return user.photos.count
+        }
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let row = indexPath.row
+        
+        if collectionView == infoButtonsCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: infoButtonsCellIdentefier, for: indexPath) as! InfoButtonCollectionViewCell
+            cell.prepareCell(with: InformationType.types[row], and: user)
+            return cell
+        } else if collectionView == photoCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoCellIdentefier, for: indexPath) as! PhotoCollectionViewCell
+            cell.prepareCell(with: user.photos[row])
+            return cell
+        }
+        
+        return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let followersButton = 1
+        
+        if indexPath.row == followersButton {
+            performSegue(withIdentifier: followersIdentifierSegue, sender: nil)
+        }
     }
     
 }

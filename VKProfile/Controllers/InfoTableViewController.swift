@@ -94,7 +94,7 @@ class InfoTableViewController: UITableViewController {
         nameLabel.text = "\(user.name) \(user.surname)"
         statusLabel.text = user.onlineStatus.rawValue
         yearsLabel.text = "\(user.age)"
-        yearTextLabel.text = EndingWord.getCorrectEnding(with: user.age, and: DeclinationWordDictionary.age) + seperator
+        yearTextLabel.text = EndingWord.getCorrectEnding(with: user.age, and: DeclinationWord.age) + seperator
         cityLabel.text = user.city
     }
     

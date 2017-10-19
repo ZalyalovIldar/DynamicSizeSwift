@@ -16,6 +16,19 @@ enum OnlineStatus: String {
     static let statuses = [offline, mobile, computer]
 }
 
+enum InformationType {
+    case friends
+    case followers
+    case groups
+    case photos
+    case videos
+    case audios
+    case presents
+    case files
+    
+    static let types = [friends, followers, groups, photos, videos, audios, presents, files]
+}
+
 struct User {
     var name: String
     var surname: String

@@ -14,8 +14,8 @@ struct DeclinationWord {
     var many: String
 }
 
-class DeclinationWordDictionary {
-    
+//ready to use words
+extension DeclinationWord {
     static let friend = DeclinationWord(single: "друг", several: "друга", many: "друзей")
     static let follower = DeclinationWord(single: "подписчик", several: "подписчика", many: "подписчиков")
     static let group = DeclinationWord(single: "группа", several: "группы", many: "групп")
@@ -23,5 +23,4 @@ class DeclinationWordDictionary {
     static let present = DeclinationWord(single: "подарок", several: "подарка", many: "подарков")
     static let file = DeclinationWord(single: "файл", several: "файла", many: "файлов")
     static let age = DeclinationWord(single: "год", several: "года", many: "лет")
-    
 }
