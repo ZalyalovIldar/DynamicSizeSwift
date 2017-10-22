@@ -16,5 +16,5 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         
         photo.image = image
         
-}
+    }
 }

@@ -24,6 +24,8 @@ enum Identifiers: String {
     case notesIdentifier = "newsSegue"
     case informationButtonIdentifier = "info"
     case photosCellIdentifier = "photosCell"
+    case followersButtonIdentifier = "followersButton"
+    case descriptionCellIdentifier = "descriptionCell"
 }
 
 extension UINib {
@@ -39,8 +41,9 @@ extension UINib {
         case followersCellNibName = "CustomFollowersTableViewCell"
         case newsCellNibName = "NewsTableViewCell"
         case photosCellNibName = "PhotosCollectionViewCell"
+        case descriptionCellNibName = "DescriptionCollectionViewCell"
         
-        static let values = [mainInfoNibName, contactsNibName, careerNibName, educationNibName, interestsNibName, statusNibName, giftsNibName, headerNibName, followersCellNibName, newsCellNibName, photosCellNibName]
+        static let values = [mainInfoNibName, contactsNibName, careerNibName, educationNibName, interestsNibName, statusNibName, giftsNibName, headerNibName, followersCellNibName, newsCellNibName, photosCellNibName, descriptionCellNibName]
     }
     
     convenience init!(nibName: NibsNames) {

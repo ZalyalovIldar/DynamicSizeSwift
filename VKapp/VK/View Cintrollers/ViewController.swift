@@ -21,22 +21,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var usersAvatar: UIImageView!
    
     @IBOutlet weak var informationButton: UIButton!
-    
-    @IBOutlet weak var scrollDescription: UIScrollView!
-    
+
     @IBOutlet weak var photosCollectionView: UICollectionView!
     
+    @IBOutlet weak var descriptionCollectionView: UICollectionView!
+    
     @IBOutlet weak var photoArrow: UIButton!
-    
-    @IBOutlet weak var friendsCount: UIButton!
-    
-    @IBOutlet weak var followersCount: UIButton!
-    
-    @IBOutlet weak var groupsCount: UIButton!
-    
-    @IBOutlet weak var photosCount: UIButton!
-    
-    @IBOutlet weak var videosCount: UIButton!
     
     @IBOutlet weak var newsTableView: UITableView!
     
@@ -46,6 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var news = ["Река Замбези! Четвертая по протяженности река в Африке. Имеет длину 2574 км.", "Доброе утро :)", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", ""]
     var newsPictures = [UIImage(assetName: .zambezi), UIImage(assetName: .nature), nil, UIImage(assetName: .zambezi) ]
     var photos = [UIImage(assetName: .heart), UIImage(assetName: .heart), UIImage(assetName: .iosIcon), UIImage(assetName: .heart)]
+    var buttonsTitles = ["195 друзей", "248 подписчиков", "39 групп", "18 фото", "9 видео"]
     
     var photoButtonLabel = "фото"
     var arrowButtonLabel = "фотографий"
@@ -80,10 +71,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func cellsRegister() {
         let tableNib = UINib(nibName: .newsCellNibName)
         newsTableView.register(tableNib, forCellReuseIdentifier: Identifiers.newsCellIdentifier.rawValue)
-        let collectionNib = UINib(nibName: .photosCellNibName)
-        photosCollectionView.register(collectionNib, forCellWithReuseIdentifier: Identifiers.photosCellIdentifier.rawValue)
+        
+        let collectionPhotoNib = UINib(nibName: .photosCellNibName)
+        photosCollectionView.register(collectionPhotoNib, forCellWithReuseIdentifier: Identifiers.photosCellIdentifier.rawValue)
+        
+        let collectionDescriptionNib = UINib(nibName: .descriptionCellNibName)
+        descriptionCollectionView.register(collectionDescriptionNib, forCellWithReuseIdentifier: Identifiers.descriptionCellIdentifier.rawValue)
     }
-  
     
     func informationButtonPressed() {
         performSegue(withIdentifier: Identifiers.informationButtonIdentifier.rawValue, sender: nil)
@@ -143,47 +137,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         usersAvatar.image = users[index].avatar
         
-        let randomCountForPhotos = Int(arc4random_uniform(UInt32(1000)))
-        
-        let titleForPhotos = NSAttributedString(string: randomCountForPhotos.description + space + photoButtonLabel,
-                                                attributes: [NSForegroundColorAttributeName : UIColor.black] )
-        photosCount.setAttributedTitle(titleForPhotos, for: .normal)
-        photosCount.titleLabel?.textAlignment = NSTextAlignment.center
-        
-        let titleForPhotoArrow = NSAttributedString(string: randomCountForPhotos.description + space + arrowButtonLabel,
-                                                    attributes: [NSForegroundColorAttributeName : UIColor.black] )
-        photoArrow.setAttributedTitle(titleForPhotoArrow, for: .normal)
-        
-        
-        let randomCountForFriends = Int(arc4random_uniform(UInt32(1000)))
-        
-        let titleForFriends = NSAttributedString(string: randomCountForFriends.description + space + friendsButtonLabel,
-                                                 attributes: [NSForegroundColorAttributeName : UIColor.black])
-        friendsCount.setAttributedTitle(titleForFriends, for: .normal)
-        friendsCount.titleLabel?.textAlignment = NSTextAlignment.center
-        
-        
-        let randomCountForFollowers = Int(arc4random_uniform(UInt32(1000)))
-        
-        let titleForFollowers = NSAttributedString(string: randomCountForFollowers.description + space + followersButtonLabel,
-                                                   attributes: [NSForegroundColorAttributeName : UIColor.black])
-        followersCount.setAttributedTitle(titleForFollowers, for: .normal)
-        followersCount.titleLabel?.textAlignment = NSTextAlignment.center
-        
-        
-        let randomCountForGroups = Int(arc4random_uniform(UInt32(1000)))
-        
-        let titleForGroups = NSAttributedString(string: randomCountForGroups.description + space + groupsButtonLabel,
-                                                attributes: [NSForegroundColorAttributeName : UIColor.black])
-        groupsCount.setAttributedTitle(titleForGroups, for: .normal)
-        groupsCount.titleLabel?.textAlignment = NSTextAlignment.center
-        
-        let randomCountForVideos = Int(arc4random_uniform(UInt32(1000)))
-        
-        let titleForVideos = NSAttributedString(string: randomCountForVideos.description + space + videosButtonLabel,
-                                                 attributes: [NSForegroundColorAttributeName : UIColor.black])
-        videosCount.setAttributedTitle(titleForVideos, for: .normal)
-        videosCount.titleLabel?.textAlignment = NSTextAlignment.center
     }
     
     //MARK: UITableViewDelegate & Datasource
@@ -232,17 +185,36 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let descriptionButtonsCount = 5
+        
+        if collectionView == photosCollectionView {
         return photos.count
+        }
+        if collectionView == descriptionCollectionView {
+            return descriptionButtonsCount
+        }
+        
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if collectionView == photosCollectionView {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.photosCellIdentifier.rawValue, for: indexPath) as! PhotosCollectionViewCell
         
         if let image = photos[indexPath.row] {
             cell.prepareCell(with: image)
         }
-        
         return cell
+        }
+        if collectionView == descriptionCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.descriptionCellIdentifier.rawValue, for: indexPath) as! DescriptionCollectionViewCell
+            
+            cell.prepareButton(title: buttonsTitles[indexPath.row])
+            return cell
+        }
+        
+        return UICollectionViewCell()
     }
 }
 
