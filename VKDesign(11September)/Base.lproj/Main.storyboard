@@ -71,8 +71,8 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DR2-BA-KEb">
-                                            <rect key="frame" x="8" y="185" width="289" height="30"/>
-                                            <state key="normal" title="number photos                                              ">
+                                            <rect key="frame" x="8" y="185" width="252" height="30"/>
+                                            <state key="normal" title="16 photos                                              ">
                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>

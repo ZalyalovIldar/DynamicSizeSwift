@@ -14,7 +14,6 @@ class UserPhotoCollectionViewCell: UICollectionViewCell {
 
     func prepareCell(with photo: UIImage) {
         photoImageView.image = photo
-        //photoImageView.sizeToFit()
     }
 
 }

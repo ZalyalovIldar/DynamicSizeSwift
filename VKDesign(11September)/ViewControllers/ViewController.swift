@@ -284,7 +284,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row ==  1 {
+        if indexPath.row ==  types.index(of: .followers) {
             performSegue(withIdentifier: followersSequeIdentifier, sender: nil)
         }
     }
