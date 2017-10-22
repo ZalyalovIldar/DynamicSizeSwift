@@ -45,8 +45,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var users: [User] = [User(name: "Элина", surname: "Батырова", avatar: UIImage.init(named: "Elina")!, photos: [UIImage.init(named: "heart")!], status: "online (моб.)", profile: [Information(sectionName: "Изменить статус", rowsNames: [], rowsImages: [], rowsFilling: []), Information(sectionName: "", rowsNames: ["День рождения", "Семейное положение", "Языки", "Братья, сестры" ], rowsImages: [], rowsFilling: ["17 октября 1998", "не замужем", "русский, english", "Эльвира Батырова"]), Information(sectionName: "Контакты", rowsNames: [], rowsImages: [
         UIImage(named: "phone icon")!, UIImage(named: "home icon")!, UIImage(named: "vk icon")!], rowsFilling: ["89667845699", "Kazan, Nab.Chelny", "vk.com/id8888"]), Information(sectionName: "Карьера", rowsNames: ["iOS lab"], rowsImages: [UIImage(named:"ios icon")!], rowsFilling: ["iOS Developer"]), Information(sectionName: "Образование", rowsNames: ["Вуз", "Школа"], rowsImages: [], rowsFilling: ["КФУ (бывш. КГУ им. Ульянова-Ленина)", "Лицей 78 им.А.С.Пушкина"]), Information(sectionName: "Подарки", rowsNames: [], rowsImages: [], rowsFilling: []), Information(sectionName: "", rowsNames: ["Интересные страницы", "Заметки", "Документы"], rowsImages: [], rowsFilling: ["12", "3","56"])] ), User(name: "Эльвира", surname: "Батырова", avatar: UIImage.init(named: "Elvira")!, photos: [UIImage.init(named: "heart")!], status: "online", profile: [] ), User(name: "Айгуль", surname: "Ризатдинова", avatar: UIImage.init(named: "Information")!, photos: [UIImage.init(named: "heart")!], status: "offline", profile: [] )]
     
-    var news = ["Река Замбези!", "Доброе утро :)"]
-    var newsPictures = [UIImage(assetName: .zambezi), UIImage(assetName: .nature)]
+    var news = ["Река Замбези! Четвертая по протяженности река в Африке. Имеет длину 2574 км.", "Доброе утро :)", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", ""]
+    var newsPictures = [UIImage(assetName: .zambezi), UIImage(assetName: .nature), nil, UIImage(assetName: .zambezi) ]
     
     var photoButtonLabel = "фото"
     var arrowButtonLabel = "фотографий"
@@ -57,8 +57,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var space = " "
     
     var index = 0
-    let newsRowHeight : CGFloat = 300
-    let newsRowHeightWithioutPicture : CGFloat = 150
+    let newsRowHeight: CGFloat = 300
+    let newsRowHeightWithioutPicture: CGFloat = 150
+    let estimatedRowHeight: CGFloat = 100
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +70,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         informationButton.addTarget(self, action: #selector(informationButtonPressed), for: .touchDragEnter)
         
         cellsRegister()
+        setupTableViewSize()
+        
+    }
+    
+    func setupTableViewSize() {
+        newsTableView.estimatedRowHeight = estimatedRowHeight
+        newsTableView.rowHeight = UITableViewAutomaticDimension
         
     }
     
@@ -103,11 +111,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             destinationTVC.usersNameForToolBar = users[index].name
             
-//            // Уберем текст backitem следующего контроллера
-//
-//            let backItem = UIBarButtonItem()
-//            backItem.title = ""
-//            navigationItem.backBarButtonItem = backItem
+            // Уберем текст backitem следующего контроллера
+
+            let backItem = UIBarButtonItem()
+            backItem.title = ""
+            navigationItem.backBarButtonItem = backItem
             
         }
         if segue.identifier == Identifiers.notesIdentifier.rawValue && sender != nil {
@@ -188,15 +196,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return news.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if newsPictures[indexPath.row] == nil {
-            return newsRowHeightWithioutPicture
-        }
-        else {
-            return newsRowHeight
-        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
