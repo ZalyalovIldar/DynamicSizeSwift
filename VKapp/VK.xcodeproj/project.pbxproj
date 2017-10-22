@@ -15,6 +15,8 @@
 		C32242D91F781D44003C8470 /* InterestsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C32242D71F781D44003C8470 /* InterestsTableViewCell.xib */; };
 		C33AEBD51F94F7C5006FE486 /* StringsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33AEBD41F94F7C5006FE486 /* StringsHelper.swift */; };
 		C34BEC9A1F828B9200B8A6CA /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34BEC991F828B9100B8A6CA /* NotesViewController.swift */; };
+		C370E6B61F9CDA8800717D1A /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C370E6B41F9CDA8800717D1A /* PhotosCollectionViewCell.swift */; };
+		C370E6B71F9CDA8800717D1A /* PhotosCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C370E6B51F9CDA8800717D1A /* PhotosCollectionViewCell.xib */; };
 		C3729EC31F77A5F4004ED667 /* Users Information structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3729EC21F77A5F4004ED667 /* Users Information structures.swift */; };
 		C3729EC51F77AF0D004ED667 /* StatusCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3729EC41F77AF0D004ED667 /* StatusCustomTableViewCell.xib */; };
 		C3729EC71F77B010004ED667 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3729EC61F77B010004ED667 /* StatusTableViewCell.swift */; };
@@ -70,6 +72,8 @@
 		C32242D71F781D44003C8470 /* InterestsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InterestsTableViewCell.xib; sourceTree = "<group>"; };
 		C33AEBD41F94F7C5006FE486 /* StringsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsHelper.swift; sourceTree = "<group>"; };
 		C34BEC991F828B9100B8A6CA /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		C370E6B41F9CDA8800717D1A /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		C370E6B51F9CDA8800717D1A /* PhotosCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3729EC21F77A5F4004ED667 /* Users Information structures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Users Information structures.swift"; sourceTree = "<group>"; };
 		C3729EC41F77AF0D004ED667 /* StatusCustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusCustomTableViewCell.xib; sourceTree = "<group>"; };
 		C3729EC61F77B010004ED667 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusTableViewCell.swift; path = VK/StatusTableViewCell.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 				C32242D21F781AE4003C8470 /* EducationTableViewCell.swift */,
 				C32242CE1F7815DB003C8470 /* CareerTableViewCell.swift */,
 				C3D716311F8A8B99008E287E /* NewsTableViewCell.swift */,
+				C370E6B41F9CDA8800717D1A /* PhotosCollectionViewCell.swift */,
 			);
 			name = "TableView cells classes";
 			path = ..;
@@ -191,6 +196,7 @@
 				C3C2561A1F70152D00DC43E4 /* CustomFollowersTableViewCell.xib */,
 				C32242CF1F7815DB003C8470 /* CareerTableViewCell.xib */,
 				C3D716321F8A8B99008E287E /* NewsTableViewCell.xib */,
+				C370E6B51F9CDA8800717D1A /* PhotosCollectionViewCell.xib */,
 			);
 			path = "XIB cells";
 			sourceTree = "<group>";
@@ -364,6 +370,7 @@
 				C37889D71F66D53C001572B6 /* Assets.xcassets in Resources */,
 				C3C2561B1F70152D00DC43E4 /* CustomFollowersTableViewCell.xib in Resources */,
 				C32242D11F7815DB003C8470 /* CareerTableViewCell.xib in Resources */,
+				C370E6B71F9CDA8800717D1A /* PhotosCollectionViewCell.xib in Resources */,
 				C3729EC91F77B44A004ED667 /* CustomCellForMainInformation.xib in Resources */,
 				C3D716341F8A8B99008E287E /* NewsTableViewCell.xib in Resources */,
 				C37889D51F66D53C001572B6 /* Main.storyboard in Resources */,
@@ -402,6 +409,7 @@
 				C37889D01F66D53C001572B6 /* AppDelegate.swift in Sources */,
 				C3729EC71F77B010004ED667 /* StatusTableViewCell.swift in Sources */,
 				C3C2561D1F70167900DC43E4 /* CustomFollowersTableViewCell.swift in Sources */,
+				C370E6B61F9CDA8800717D1A /* PhotosCollectionViewCell.swift in Sources */,
 				C32242D01F7815DB003C8470 /* CareerTableViewCell.swift in Sources */,
 				C3729EC31F77A5F4004ED667 /* Users Information structures.swift in Sources */,
 				C32242D41F781AE4003C8470 /* EducationTableViewCell.swift in Sources */,

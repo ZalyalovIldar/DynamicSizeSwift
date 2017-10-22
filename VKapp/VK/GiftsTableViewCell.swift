@@ -10,6 +10,5 @@ import UIKit
 
 class GiftsTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var giftsCountLabel: UILabel!
-
+    @IBOutlet weak var giftsCountButton: UIButton!
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DataTransferProtocol, ThreePointsButtonProtocol {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, DataTransferProtocol, ThreePointsButtonProtocol {
     
     @IBOutlet weak var name: UILabel!
     
@@ -24,11 +24,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var scrollDescription: UIScrollView!
     
-    @IBOutlet weak var scrollPhotos: UIScrollView!
+    @IBOutlet weak var photosCollectionView: UICollectionView!
     
     @IBOutlet weak var photoArrow: UIButton!
-    
-    @IBOutlet weak var usersImage: UIImageView!
     
     @IBOutlet weak var friendsCount: UIButton!
     
@@ -47,6 +45,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var news = ["Река Замбези! Четвертая по протяженности река в Африке. Имеет длину 2574 км.", "Доброе утро :)", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", ""]
     var newsPictures = [UIImage(assetName: .zambezi), UIImage(assetName: .nature), nil, UIImage(assetName: .zambezi) ]
+    var photos = [UIImage(assetName: .heart), UIImage(assetName: .heart), UIImage(assetName: .iosIcon), UIImage(assetName: .heart)]
     
     var photoButtonLabel = "фото"
     var arrowButtonLabel = "фотографий"
@@ -71,18 +70,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cellsRegister()
         setupTableViewSize()
-        
     }
     
     func setupTableViewSize() {
         newsTableView.estimatedRowHeight = estimatedRowHeight
         newsTableView.rowHeight = UITableViewAutomaticDimension
-        
     }
     
     func cellsRegister() {
-        let nib = UINib(nibName: .newsCellNibName)
-        newsTableView.register(nib, forCellReuseIdentifier: Identifiers.newsCellIdentifier.rawValue)
+        let tableNib = UINib(nibName: .newsCellNibName)
+        newsTableView.register(tableNib, forCellReuseIdentifier: Identifiers.newsCellIdentifier.rawValue)
+        let collectionNib = UINib(nibName: .photosCellNibName)
+        photosCollectionView.register(collectionNib, forCellWithReuseIdentifier: Identifiers.photosCellIdentifier.rawValue)
     }
   
     
@@ -143,8 +142,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         userNameInToolBar.title = users[index].name
         
         usersAvatar.image = users[index].avatar
-        
-        usersImage.image = users[index].photos.first
         
         let randomCountForPhotos = Int(arc4random_uniform(UInt32(1000)))
         
@@ -226,6 +223,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let actionSheetController = self.didPressThreePointsButton()
         present(actionSheetController, animated: true, completion: nil)
+    }
+    
+    // MARK: UICollectionViewDelegate & Datasource
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photos.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.photosCellIdentifier.rawValue, for: indexPath) as! PhotosCollectionViewCell
+        
+        if let image = photos[indexPath.row] {
+            cell.prepareCell(with: image)
+        }
+        
+        return cell
     }
 }
 
