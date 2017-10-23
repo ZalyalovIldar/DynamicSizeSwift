@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UITableViewController, CreateNewsDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    
+
     @IBOutlet weak var infoButtonsCollectionView: UICollectionView!
     @IBOutlet weak var photoCollectionView: UICollectionView!
     @IBOutlet var menuButtons: [UIButton]!

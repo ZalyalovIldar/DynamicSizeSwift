@@ -175,7 +175,7 @@ class InfoTableViewController: UITableViewController {
             }
         case 5:
             let presentCell = tableView.dequeueReusableCell(withIdentifier: cellsInfo[section].identifier, for: indexPath) as! PresentTableViewCell
-            presentCell.prepareCell(with: userInfo.presents)
+            presentCell.presents = userInfo.presents
             return presentCell
         case 6:
             let otherInfoCell = tableView.dequeueReusableCell(withIdentifier: cellsInfo[section].identifier, for: indexPath) as! OtherInfoTableViewCell

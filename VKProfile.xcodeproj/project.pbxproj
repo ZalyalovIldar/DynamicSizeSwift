@@ -35,6 +35,8 @@
 		CB7DFB981F7011C90041877A /* FollowersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DFB961F7011C90041877A /* FollowersTableViewController.swift */; };
 		CB7DFB9C1F7012400041877A /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DFB9A1F7012400041877A /* FollowerTableViewCell.swift */; };
 		CB7DFB9D1F7012400041877A /* FollowerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7DFB9B1F7012400041877A /* FollowerTableViewCell.xib */; };
+		CB7EFFA61F9E2ABE00E05FBD /* PresentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EFFA41F9E2ABE00E05FBD /* PresentCollectionViewCell.swift */; };
+		CB7EFFA71F9E2ABE00E05FBD /* PresentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB7EFFA51F9E2ABE00E05FBD /* PresentCollectionViewCell.xib */; };
 		CB8489931F75AB3800D2FEE7 /* Institute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8489921F75AB3800D2FEE7 /* Institute.swift */; };
 		CB8489951F75AB5A00D2FEE7 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8489941F75AB5A00D2FEE7 /* School.swift */; };
 		CB8489981F75ABB800D2FEE7 /* SchoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8489961F75ABB800D2FEE7 /* SchoolTableViewCell.swift */; };
@@ -92,6 +94,8 @@
 		CB7DFB961F7011C90041877A /* FollowersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersTableViewController.swift; sourceTree = "<group>"; };
 		CB7DFB9A1F7012400041877A /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
 		CB7DFB9B1F7012400041877A /* FollowerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowerTableViewCell.xib; sourceTree = "<group>"; };
+		CB7EFFA41F9E2ABE00E05FBD /* PresentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentCollectionViewCell.swift; sourceTree = "<group>"; };
+		CB7EFFA51F9E2ABE00E05FBD /* PresentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresentCollectionViewCell.xib; sourceTree = "<group>"; };
 		CB8489921F75AB3800D2FEE7 /* Institute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Institute.swift; sourceTree = "<group>"; };
 		CB8489941F75AB5A00D2FEE7 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		CB8489961F75ABB800D2FEE7 /* SchoolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTableViewCell.swift; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 				CB71732B1F98A5A800B6ACAF /* InfoButtonCollectionViewCell.xib */,
 				CB71732E1F98A80C00B6ACAF /* PhotoCollectionViewCell.swift */,
 				CB71732F1F98A80C00B6ACAF /* PhotoCollectionViewCell.xib */,
+				CB7EFFA41F9E2ABE00E05FBD /* PresentCollectionViewCell.swift */,
+				CB7EFFA51F9E2ABE00E05FBD /* PresentCollectionViewCell.xib */,
 			);
 			path = collectionCells;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 				CBD1044C1F75633D00A48BCD /* ContactTableViewCell.xib in Resources */,
 				CBD104441F744D7400A48BCD /* StatusTableViewCell.xib in Resources */,
 				CB5A1A7D1F66D55500C1971E /* Assets.xcassets in Resources */,
+				CB7EFFA71F9E2ABE00E05FBD /* PresentCollectionViewCell.xib in Resources */,
 				CB7173311F98A80C00B6ACAF /* PhotoCollectionViewCell.xib in Resources */,
 				CB8489991F75ABB800D2FEE7 /* SchoolTableViewCell.xib in Resources */,
 				CBD104581F757AC300A48BCD /* ProfessionTableViewCell.xib in Resources */,
@@ -349,6 +356,7 @@
 			files = (
 				CB71732C1F98A5A800B6ACAF /* InfoButtonCollectionViewCell.swift in Sources */,
 				CB8935251F877B3300C26DD2 /* MoreProfileAlert.swift in Sources */,
+				CB7EFFA61F9E2ABE00E05FBD /* PresentCollectionViewCell.swift in Sources */,
 				CB7061DD1F76C7F4008A14A8 /* PresentTableViewCell.swift in Sources */,
 				CB42F4D91F730BA000871971 /* EndingWord.swift in Sources */,
 				CB42F4D21F73035400871971 /* InfoTableViewController.swift in Sources */,
