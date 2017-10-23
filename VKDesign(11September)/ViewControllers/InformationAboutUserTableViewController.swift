@@ -27,7 +27,7 @@ class InformationAboutUserTableViewController: UITableViewController {
     let contactsCellHeight: CGFloat = 40
     let carierCellHeight: CGFloat = 78
     let mainInfoCellHeight: CGFloat = 53
-    let giftsCellHeight: CGFloat = 122
+    let giftsCellHeight: CGFloat = 110
     let defaultCellHeight: CGFloat = 44
     let educationCellHeight: CGFloat = 49
     
@@ -36,6 +36,7 @@ class InformationAboutUserTableViewController: UITableViewController {
     let mainInfoSubtitleArray = [ ["21 июля 1998", "16 января 2000"], ["Apple", "Google"], ["Женат", "Есть подруга"], ["Русский, Испанский", "Английский, Итальянский"], ["Иван Иванов, Мария Иванова", "Петр Петров, Анна Петрова"] ]
     let contactArray = [ ["89536777391", "89005258501"], ["Киров", "Казань"], ["super_nagibator", "ios_NINJA"] ]
     let contactImageArray = [UIImage(named: "phoneContact")!, UIImage(named: "homeContact")!, UIImage(named: "vkContact")!]
+    let giftsImageArray = [UIImage(named: "gift1")!, UIImage(named: "gift2")!, UIImage(named: "gift3")!, UIImage(named: "gift1")!]
     let carierCompanyArray = ["Apple", "Google",]
     let carierLocationAndPeriodArray = ["Cupertino, 2016-2017", "Kirov, 2000-2001"]
     let carierPositionArray = ["iOS Developer", "Java Developer"]
@@ -241,7 +242,6 @@ class InformationAboutUserTableViewController: UITableViewController {
         case .carier:
             let cell = tableView.dequeueReusableCell(withIdentifier: carierCellIdentifier, for: indexPath) as! CarierTableViewCell
             cell.prepareCell(with: item as! InformationViewModelCarierItem)
-
             return cell
             
         case .education:
@@ -253,6 +253,7 @@ class InformationAboutUserTableViewController: UITableViewController {
         case .gifts:
             let cell = tableView.dequeueReusableCell(withIdentifier: giftsCellIdentifier, for: indexPath) as! GiftsTableViewCell
             cell.prepareCell(with: item as! InformationViewModelGiftsItem)
+            cell.gifts = giftsImageArray
             return cell
             
         case .moreInfo:

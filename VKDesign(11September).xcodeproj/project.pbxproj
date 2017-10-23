@@ -43,6 +43,8 @@
 		954445B81F786956000C1F5E /* InformationViewModelEducationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954445B71F786956000C1F5E /* InformationViewModelEducationItem.swift */; };
 		954445BA1F786987000C1F5E /* InformationViewModelGiftsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954445B91F786987000C1F5E /* InformationViewModelGiftsItem.swift */; };
 		954445BC1F7869A4000C1F5E /* InformationViewModelMoreInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954445BB1F7869A4000C1F5E /* InformationViewModelMoreInfoItem.swift */; };
+		95BB96491F9E7BBA004AD3F3 /* GiftCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BB96471F9E7BBA004AD3F3 /* GiftCollectionViewCell.swift */; };
+		95BB964A1F9E7BBA004AD3F3 /* GiftCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95BB96481F9E7BBA004AD3F3 /* GiftCollectionViewCell.xib */; };
 		95CC0C011F7014A300331F8A /* FollowersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC0C001F7014A300331F8A /* FollowersTableViewController.swift */; };
 		95CC0C041F7014E900331F8A /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC0C021F7014E900331F8A /* FollowerTableViewCell.swift */; };
 		95CC0C051F7014E900331F8A /* FollowerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95CC0C031F7014E900331F8A /* FollowerTableViewCell.xib */; };
@@ -96,6 +98,8 @@
 		954445B71F786956000C1F5E /* InformationViewModelEducationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewModelEducationItem.swift; sourceTree = "<group>"; };
 		954445B91F786987000C1F5E /* InformationViewModelGiftsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewModelGiftsItem.swift; sourceTree = "<group>"; };
 		954445BB1F7869A4000C1F5E /* InformationViewModelMoreInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewModelMoreInfoItem.swift; sourceTree = "<group>"; };
+		95BB96471F9E7BBA004AD3F3 /* GiftCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCollectionViewCell.swift; sourceTree = "<group>"; };
+		95BB96481F9E7BBA004AD3F3 /* GiftCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftCollectionViewCell.xib; sourceTree = "<group>"; };
 		95CC0C001F7014A300331F8A /* FollowersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersTableViewController.swift; sourceTree = "<group>"; };
 		95CC0C021F7014E900331F8A /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
 		95CC0C031F7014E900331F8A /* FollowerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowerTableViewCell.xib; sourceTree = "<group>"; };
@@ -106,8 +110,8 @@
 		95F610581F786716001F71A4 /* InformationViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewModelItem.swift; sourceTree = "<group>"; };
 		95FFC44C1F9CD5E0008F224D /* AboutUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUserCollectionViewCell.swift; sourceTree = "<group>"; };
 		95FFC44D1F9CD5E0008F224D /* AboutUserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutUserCollectionViewCell.xib; sourceTree = "<group>"; };
-		95FFC4501F9CFF59008F224D /* UserPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPhotoCollectionViewCell.swift; path = "VKDesign(11September)/CustomCells/UserPhotoCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		95FFC4511F9CFF59008F224D /* UserPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = UserPhotoCollectionViewCell.xib; path = "VKDesign(11September)/CustomCells/UserPhotoCollectionViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		95FFC4501F9CFF59008F224D /* UserPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPhotoCollectionViewCell.swift; path = "VKDesign(11September)/CustomCells/CollectionViewCells/UserPhotoCollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		95FFC4511F9CFF59008F224D /* UserPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = UserPhotoCollectionViewCell.xib; path = "VKDesign(11September)/CustomCells/CollectionViewCells/UserPhotoCollectionViewCell.xib"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,27 +183,12 @@
 			path = Alerts;
 			sourceTree = "<group>";
 		};
-		95E6FB751F7950E90056C7F7 /* Models for InformationItem */ = {
+		95BB964B1F9E9026004AD3F3 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				95E6FB771F7951340056C7F7 /* Contacts.swift */,
-				95E6FB791F79516A0056C7F7 /* MainInfo.swift */,
-				95E6FB7B1F79518B0056C7F7 /* EducationalEstablishments.swift */,
-				95E6FB7D1F7951A90056C7F7 /* MoreInfo.swift */,
-			);
-			path = "Models for InformationItem";
-			sourceTree = "<group>";
-		};
-		95F610531F786654001F71A4 /* CustomCells */ = {
-			isa = PBXGroup;
-			children = (
-				95FFC4501F9CFF59008F224D /* UserPhotoCollectionViewCell.swift */,
-				95FFC4511F9CFF59008F224D /* UserPhotoCollectionViewCell.xib */,
 				95215AE81F77D5AB00F1CABF /* MoreInfoTableViewCell.swift */,
 				95215AE91F77D5AB00F1CABF /* MoreInfoTableViewCell.xib */,
 				953E59501F77C8FE00418F1F /* GiftsTableViewCell.swift */,
-				95FFC44C1F9CD5E0008F224D /* AboutUserCollectionViewCell.swift */,
-				95FFC44D1F9CD5E0008F224D /* AboutUserCollectionViewCell.xib */,
 				953E59511F77C8FE00418F1F /* GiftsTableViewCell.xib */,
 				953E594C1F77170200418F1F /* EducationTableViewCell.swift */,
 				953E594D1F77170200418F1F /* EducationTableViewCell.xib */,
@@ -215,6 +204,39 @@
 				95CC0C021F7014E900331F8A /* FollowerTableViewCell.swift */,
 				952CBEF11F828FF800DCEFE7 /* NewsTableViewCell.swift */,
 				952CBEF21F828FF800DCEFE7 /* NewsTableViewCell.xib */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		95BB964C1F9E9042004AD3F3 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				95FFC4501F9CFF59008F224D /* UserPhotoCollectionViewCell.swift */,
+				95FFC4511F9CFF59008F224D /* UserPhotoCollectionViewCell.xib */,
+				95FFC44C1F9CD5E0008F224D /* AboutUserCollectionViewCell.swift */,
+				95FFC44D1F9CD5E0008F224D /* AboutUserCollectionViewCell.xib */,
+				95BB96471F9E7BBA004AD3F3 /* GiftCollectionViewCell.swift */,
+				95BB96481F9E7BBA004AD3F3 /* GiftCollectionViewCell.xib */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		95E6FB751F7950E90056C7F7 /* Models for InformationItem */ = {
+			isa = PBXGroup;
+			children = (
+				95E6FB771F7951340056C7F7 /* Contacts.swift */,
+				95E6FB791F79516A0056C7F7 /* MainInfo.swift */,
+				95E6FB7B1F79518B0056C7F7 /* EducationalEstablishments.swift */,
+				95E6FB7D1F7951A90056C7F7 /* MoreInfo.swift */,
+			);
+			path = "Models for InformationItem";
+			sourceTree = "<group>";
+		};
+		95F610531F786654001F71A4 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				95BB964C1F9E9042004AD3F3 /* CollectionViewCells */,
+				95BB964B1F9E9026004AD3F3 /* TableViewCells */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -324,6 +346,7 @@
 				952CBEF41F828FF800DCEFE7 /* NewsTableViewCell.xib in Resources */,
 				953E59531F77C8FE00418F1F /* GiftsTableViewCell.xib in Resources */,
 				95FFC44F1F9CD5E0008F224D /* AboutUserCollectionViewCell.xib in Resources */,
+				95BB964A1F9E7BBA004AD3F3 /* GiftCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +372,7 @@
 				95FFC4521F9CFF59008F224D /* UserPhotoCollectionViewCell.swift in Sources */,
 				954445AF1F786836000C1F5E /* InformationViewModelStatusItem.swift in Sources */,
 				9523E8D11F66D516000DC924 /* AppDelegate.swift in Sources */,
+				95BB96491F9E7BBA004AD3F3 /* GiftCollectionViewCell.swift in Sources */,
 				954445B61F786930000C1F5E /* InformationViewModelCarierItem.swift in Sources */,
 				953E59491F76FF0000418F1F /* CarierTableViewCell.swift in Sources */,
 				954445B41F7868F9000C1F5E /* InformationViewModelContactsItem.swift in Sources */,
