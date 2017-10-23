@@ -39,7 +39,7 @@ class ProfileTableViewController: UITableViewController, ThreePointsButtonProtoc
     var interestsSectionRowHeight: CGFloat = 65
     var sectionsRowHeight: CGFloat = 70
     var mainInfoHeaderHeight: CGFloat = 3
-    var giftsHeaderHeight: CGFloat = 70
+    var giftsHeaderHeight: CGFloat = 120
     var headerHeight: CGFloat = 30
     
     var profileUser = User(name: "Элина", surname: "Батырова", avatar: UIImage.init(named: "Elina")!, photos: [UIImage.init(named: "heart")!], status: "online (моб.)", profile: [Information(sectionName: "Изменить статус", rowsNames: [], rowsImages: [], rowsFilling: []), Information(sectionName: "", rowsNames: ["День рождения", "Семейное положение", "Языки", "Братья, сестры" ], rowsImages: [], rowsFilling: ["17 октября 1998", "не замужем", "русский, english", "Эльвира Батырова"]), Information(sectionName: "Контакты", rowsNames: [], rowsImages: [

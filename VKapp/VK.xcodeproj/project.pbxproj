@@ -38,6 +38,8 @@
 		C37889DA1F66D53C001572B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C37889D81F66D53C001572B6 /* LaunchScreen.storyboard */; };
 		C37889E51F66D53C001572B6 /* VKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37889E41F66D53C001572B6 /* VKTests.swift */; };
 		C37889F01F66D53D001572B6 /* VKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37889EF1F66D53D001572B6 /* VKUITests.swift */; };
+		C3BE7C951F9E76C900FF3903 /* GiftsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE7C931F9E76C900FF3903 /* GiftsCollectionViewCell.swift */; };
+		C3BE7C961F9E76C900FF3903 /* GiftsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3BE7C941F9E76C900FF3903 /* GiftsCollectionViewCell.xib */; };
 		C3C256191F7010BA00DC43E4 /* FollowersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C256181F7010BA00DC43E4 /* FollowersTableViewController.swift */; };
 		C3C2561B1F70152D00DC43E4 /* CustomFollowersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3C2561A1F70152D00DC43E4 /* CustomFollowersTableViewCell.xib */; };
 		C3C2561D1F70167900DC43E4 /* CustomFollowersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C2561C1F70167900DC43E4 /* CustomFollowersTableViewCell.swift */; };
@@ -103,6 +105,8 @@
 		C37889EB1F66D53C001572B6 /* VKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C37889EF1F66D53D001572B6 /* VKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKUITests.swift; sourceTree = "<group>"; };
 		C37889F11F66D53D001572B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3BE7C931F9E76C900FF3903 /* GiftsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftsCollectionViewCell.swift; sourceTree = "<group>"; };
+		C3BE7C941F9E76C900FF3903 /* GiftsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftsCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3C256181F7010BA00DC43E4 /* FollowersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersTableViewController.swift; sourceTree = "<group>"; };
 		C3C2561A1F70152D00DC43E4 /* CustomFollowersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomFollowersTableViewCell.xib; sourceTree = "<group>"; };
 		C3C2561C1F70167900DC43E4 /* CustomFollowersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomFollowersTableViewCell.swift; path = VK/CustomFollowersTableViewCell.swift; sourceTree = "<group>"; };
@@ -138,7 +142,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C32242DB1F783524003C8470 /* TableView cells classes */ = {
+		C32242DB1F783524003C8470 /* Cells classes */ = {
 			isa = PBXGroup;
 			children = (
 				C3729ED41F77D51F004ED667 /* GiftsTableViewCell.swift */,
@@ -153,8 +157,9 @@
 				C3D716311F8A8B99008E287E /* NewsTableViewCell.swift */,
 				C370E6B41F9CDA8800717D1A /* PhotosCollectionViewCell.swift */,
 				C370E6BA1F9D073D00717D1A /* DescriptionCollectionViewCell.swift */,
+				C3BE7C931F9E76C900FF3903 /* GiftsCollectionViewCell.swift */,
 			);
-			name = "TableView cells classes";
+			name = "Cells classes";
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -203,6 +208,7 @@
 				C3D716321F8A8B99008E287E /* NewsTableViewCell.xib */,
 				C370E6B51F9CDA8800717D1A /* PhotosCollectionViewCell.xib */,
 				C370E6BB1F9D073E00717D1A /* DescriptionCollectionViewCell.xib */,
+				C3BE7C941F9E76C900FF3903 /* GiftsCollectionViewCell.xib */,
 			);
 			path = "XIB cells";
 			sourceTree = "<group>";
@@ -233,7 +239,7 @@
 				C36FB9E11F94C3B6006F1B2B /* Protocols */,
 				C36FB9E41F94C431006F1B2B /* View Cintrollers */,
 				C36FB9E21F94C3DC006F1B2B /* Structers */,
-				C32242DB1F783524003C8470 /* TableView cells classes */,
+				C32242DB1F783524003C8470 /* Cells classes */,
 				C36FB9E51F94C47C006F1B2B /* XIB cells */,
 				C37889CF1F66D53C001572B6 /* AppDelegate.swift */,
 				C37889D31F66D53C001572B6 /* Main.storyboard */,
@@ -369,6 +375,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3BE7C961F9E76C900FF3903 /* GiftsCollectionViewCell.xib in Resources */,
 				C3729EC51F77AF0D004ED667 /* StatusCustomTableViewCell.xib in Resources */,
 				C32242D51F781AE4003C8470 /* EducationTableViewCell.xib in Resources */,
 				C3729ED11F77D24D004ED667 /* CustomHeaderCell.xib in Resources */,
@@ -424,6 +431,7 @@
 				C3729ECB1F77B4C0004ED667 /* MainInformationTableViewCell.swift in Sources */,
 				C3D716371F8AB1BC008E287E /* DataTransferProtocol.swift in Sources */,
 				C34BEC9A1F828B9200B8A6CA /* NotesViewController.swift in Sources */,
+				C3BE7C951F9E76C900FF3903 /* GiftsCollectionViewCell.swift in Sources */,
 				C3C2561F1F70173500DC43E4 /* Users base.swift in Sources */,
 				C33AEBD51F94F7C5006FE486 /* StringsHelper.swift in Sources */,
 				C3D716331F8A8B99008E287E /* NewsTableViewCell.swift in Sources */,

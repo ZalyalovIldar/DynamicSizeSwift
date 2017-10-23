@@ -307,7 +307,7 @@
                                                 <segue destination="NLI-vk-2Rm" kind="show" identifier="info" id="oNE-Tn-Svq"/>
                                             </connections>
                                         </button>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gzj-52-3kN">
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gzj-52-3kN">
                                             <rect key="frame" x="2" y="230" width="446" height="90"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AQZ-Au-6Wd">
@@ -332,7 +332,7 @@
                                                 <outlet property="delegate" destination="BYZ-38-t0r" id="qdB-zp-Lmo"/>
                                             </connections>
                                         </collectionView>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aO8-EJ-8lc">
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aO8-EJ-8lc">
                                             <rect key="frame" x="10" y="137" width="430" height="45"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -474,7 +474,7 @@
                         <outlet property="userNameInToolBar" destination="27R-aO-DBX" id="rwI-eS-h0x"/>
                         <outlet property="usersAvatar" destination="99u-zK-cdl" id="XM1-tm-9jL"/>
                         <outlet property="usersStatus" destination="T9S-da-CwA" id="33C-fu-suY"/>
-                        <segue destination="E4a-Mh-FH6" kind="show" identifier="followersButton" id="31A-t6-T2U"/>
+                        <segue destination="E4a-Mh-FH6" kind="show" identifier="followersButton" id="RNN-WU-VbZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

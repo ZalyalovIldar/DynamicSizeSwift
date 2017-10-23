@@ -10,7 +10,6 @@ import UIKit
 
 class DescriptionCollectionViewCell: UICollectionViewCell {
     
-    
     @IBOutlet weak var button: UIButton!
     
     override func awakeFromNib() {
@@ -19,7 +18,15 @@ class DescriptionCollectionViewCell: UICollectionViewCell {
     }
     
     func prepareButton(title: String) {
+        
         button.setTitle(title, for: .normal)
+        
+        setupButtonsTitle()
+        
     }
-
+    
+    func setupButtonsTitle(){
+        button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        button.titleLabel?.textAlignment = NSTextAlignment.center
+    }
 }

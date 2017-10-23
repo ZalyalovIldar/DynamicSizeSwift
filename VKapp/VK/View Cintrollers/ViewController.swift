@@ -38,18 +38,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var photos = [UIImage(assetName: .heart), UIImage(assetName: .heart), UIImage(assetName: .iosIcon), UIImage(assetName: .heart)]
     var buttonsTitles = ["195 друзей", "248 подписчиков", "39 групп", "18 фото", "9 видео"]
     
-    var photoButtonLabel = "фото"
     var arrowButtonLabel = "фотографий"
-    var friendsButtonLabel = "друзей"
-    var followersButtonLabel = "подписчиков"
-    var groupsButtonLabel = "групп"
-    var videosButtonLabel = "видео"
     var space = " "
     
     var index = 0
     let newsRowHeight: CGFloat = 300
     let newsRowHeightWithioutPicture: CGFloat = 150
     let estimatedRowHeight: CGFloat = 100
+    let followersButton = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,10 +107,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             navigationItem.backBarButtonItem = backItem
             
         }
+        
         if segue.identifier == Identifiers.notesIdentifier.rawValue && sender != nil {
             
             let destinationVC = segue.destination as! NotesViewController
             destinationVC.dataTransferDelegate = self
+        }
+        
+        if segue.identifier == Identifiers.followersButtonIdentifier.rawValue && sender != nil {
+            let destinationVC = segue.destination as! FollowersTableViewController
         }
     }
 
@@ -140,6 +141,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     //MARK: UITableViewDelegate & Datasource
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -215,6 +217,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if collectionView == descriptionCollectionView {
+        
+        if indexPath.row == followersButton {
+            performSegue(withIdentifier: Identifiers.followersButtonIdentifier.rawValue, sender: nil)
+        }
+        }
     }
 }
 
