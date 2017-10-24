@@ -1,22 +1,45 @@
 import UIKit
 
-class GiftsTableViewCell: UITableViewCell {
+class GiftsTableViewCell: UITableViewCell,UICollectionViewDelegate,UICollectionViewDataSource {
     
-    @IBOutlet weak var firstGiftImageView: UIImageView!
-    @IBOutlet weak var secondGiftImageView: UIImageView!
-    @IBOutlet weak var thirdGiftImageView: UIImageView!
-    @IBOutlet weak var fourthGiftImageView: UIImageView!
+    
     @IBOutlet weak var giftsCollectionView: UICollectionView!
     @IBOutlet weak var giftsLabel: UILabel!
-    let giftsCellIdentefier = "GiftsCellIdentefier"
-    let presentString = " подарков"
     
+    var giftsArray: [UIImage] = [#imageLiteral(resourceName: "gift1"),#imageLiteral(resourceName: "gift2"),#imageLiteral(resourceName: "gift3"),#imageLiteral(resourceName: "gift4")]
+    
+    
+    let giftsCellIdentefier = "GiftsCellIdentefier"
+    let nibName = "GiftCollectionViewCell"
+    
+    let presentString = " подарков"
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupDataSourceAndDelegate()
+        registerCell()
+    }
+    
+    func registerCell() {
+        let giftsNib = UINib(nibName: nibName, bundle: nil)
+        giftsCollectionView.register(giftsNib, forCellWithReuseIdentifier: giftsCellIdentefier)
+        
+    }
+    func setupDataSourceAndDelegate() {
+        giftsCollectionView.delegate = self
+        giftsCollectionView.dataSource = self
+    }
     func prepareCell(with item: CoreModelOfGifts) {
         giftsLabel.text = String(item.numberOfPresets) + presentString
-        firstGiftImageView.image = UIImage(named:"gift\(arc4random_uniform(4) + 1).png")
-        secondGiftImageView.image = UIImage(named:"gift\(arc4random_uniform(4) + 1).png")
-        thirdGiftImageView.image = UIImage(named:"gift\(arc4random_uniform(4) + 1).png")
-        fourthGiftImageView.image = UIImage(named:"gift\(arc4random_uniform(4) + 1).png")
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return giftsArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: giftsCellIdentefier, for: indexPath) as! GiftCollectionViewCell
+        let giftImage = giftsArray[indexPath.row]
+        cell.prepareCell(with: giftImage)
+        return cell
     }
 
 }

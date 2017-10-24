@@ -48,7 +48,7 @@ class InfoTableViewController: UITableViewController {
     let basicInfoCellHeight: CGFloat = 50
     let contactsCellHeight: CGFloat = 40
     let careerCellHeight: CGFloat = 80
-    let giftsCellHeight: CGFloat = 120
+    let giftsCellHeight: CGFloat = 80
     let defaultCellHeight: CGFloat = 44
     
     var statusArray = ["Hello world", "Hi","ok"]
